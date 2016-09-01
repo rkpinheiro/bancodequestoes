@@ -7,3 +7,27 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Custom
+@media (min-width: 1200px){
+	.body-container {
+	    width: 615px;
+	}
+}
+
+.panel .page-header,
+.panel .page-header h1,
+.panel .page-header h2,
+.panel .page-header h3,
+.panel .page-header h4,
+.panel .page-header h5,
+.panel .page-header h6
+{
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.navbar-nav .btn{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
