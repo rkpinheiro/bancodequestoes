@@ -5780,8 +5780,16 @@ button.close {
   margin-top: 0;
   margin-bottom: 5px; }
 
-.navbar-nav .btn {
-  margin-top: 7px;
-  margin-bottom: 7px; }
+.modal .answers .radio label {
+  margin-bottom: 3px;
+  width: 100%; }
+
+.modal .answers .radio input[type="radio"] {
+  margin-top: 12px; }
+
+.navbar-header .new-question {
+  position: relative;
+  float: right;
+  margin: 7px; }
 
 /*# sourceMappingURL=app.css.map */

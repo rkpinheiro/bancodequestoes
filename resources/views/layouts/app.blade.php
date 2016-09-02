@@ -24,9 +24,13 @@
                     <span class="icon-bar"></span>
                 </button>
 
+                <button type="button" class="btn btn-danger new-question" data-toggle="modal" data-target="#myModal">
+                  Novo
+                </button>
+
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ route('root') }}">
-                    <!-- <img src="{{ asset('img/logo.png') }}" alt="LabVida"> -->
+                    {{-- <img src="{{ asset('img/logo.png') }}" alt="LabVida"> --}}
                     Banco de questões
                 </a>
             </div>
@@ -34,14 +38,13 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    {{-- <li><a href="{{ route('root') }}">Início</a></li> --}}
                 </ul>
                 
                 
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ route('root') }}">Novo</a></li>
+                    <li><a href="{{ route('root') }}">Categorias</a></li>
                     <!-- Authentication Links -->
                     {{-- @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>

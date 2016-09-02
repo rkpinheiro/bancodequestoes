@@ -28,9 +28,12 @@
 				<div>
 					<button class="btn btn-default pull-right">Vizualizar</button>
 				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
+
+@include('partials._new_question')
 
 @stop
