@@ -21,3 +21,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Question::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence($nbWords = 15, $variableNbWords = true),
+        'content' => $faker->optional()->paragraph($nbSentences = 3, $variableNbSentences = true),
+    ];
+});
+
+$factory->define(App\Answer::class, function (Faker\Generator $faker) {
+    return [
+        'text' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+    ];
+});
