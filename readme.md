@@ -15,6 +15,7 @@ O projeto é Open-Source de iniciativa dos alunos de Sistemas de Informação em
 2. Acesse o diretório `cd bancodequestoes/` e execute o comando:
 
         $ composer install
+        $ gulp --production
 
 3. Configure seu arquivo de ambiente `.env` e inicialize o banco de dados:
 
