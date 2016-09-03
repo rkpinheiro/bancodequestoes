@@ -71,7 +71,7 @@
         </div>
     </nav>
 
-    <div class="container body-container">
+    <div class="container-fluid body-container">
         @yield('content')
         <hr />
         <footer>

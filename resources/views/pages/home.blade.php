@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="row" data-ng-repeat="question in questions">
-		<div class="item">
-			<div class="col-md-12">
+	<div class="row">
+		<div class="item" data-ng-repeat="question in questions">
+			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="page-header">
