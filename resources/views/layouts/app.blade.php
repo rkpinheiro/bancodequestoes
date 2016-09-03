@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Required meta tags always come first -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Banco de Questões</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/angular.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
     <script>
         var root = '{{url('/')}}'
     </script>
+    <style>
+        
+    </style>
     
 </head>
 <body id="app-layout" data-ng-app="question" data-ng-controller="QuestionController" data-ng-init='init()'>
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-dark bg-primary">
         <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
+          <a class="navbar-brand" href="{{route('root')}}">Banco de questões</a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
                 <button type="button" class="btn btn-danger new-question" ng-click="new()" data-toggle="modal" data-target="#newQuestion">
                   Novo
                 </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ route('root') }}">
-                    {{-- <img src="{{ asset('img/logo.png') }}" alt="LabVida"> --}}
-                    Banco de questões
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                </ul>
-                
-                
-
+            </li>
+          </ul>
+          <form class="form-inline pull-xs-right">
+            <input class="form-control" type="text" placeholder="Buscar">
+          </form>        
+            {{--            
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('root') }}">Categorias</a></li>
                     <!-- Authentication Links -->
-                    {{-- @if (Auth::guest())
+                    @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
@@ -65,11 +53,14 @@
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
-                    @endif --}}
+                    @endif
                 </ul>
-            </div>
+            --}}        
         </div>
     </nav>
+
+
+
 
     <div class="container-fluid body-container">
         @yield('content')
@@ -79,6 +70,10 @@
         </footer>
     </div>
 
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/tether.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 
 </body>
 </html>
