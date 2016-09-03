@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div data-ng-app="question" data-ng-controller="QuestionController" data-ng-init='init()'>
 	<div class="row" data-ng-repeat="question in questions">
 		<div class="item">
 			<div class="col-md-12">
@@ -28,15 +27,15 @@
 						</div>
 						<div>
 							<span>Dificuldade: </span>
-							<button class="btn btn-default pull-right">Vizualizar</button>
+							<button class="btn btn-default pull-right" ng-click="get(question.id)" data-toggle="modal" data-target="#editQuestion">Editar</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-@include('partials._new_question')
+	@include('partials._new_question')
+	@include('partials._edit_question')
 
 @stop

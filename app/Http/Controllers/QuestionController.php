@@ -9,11 +9,6 @@ use App\Question;
 
 class QuestionController extends Controller
 {
-    public function all()
-    {
-        return response()->json(Question::all());
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +16,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Question::orderBy('created_at','desc')->get());
     }
 
     /**
@@ -42,7 +37,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = Question::create($request->all());
+        foreach ($request->answers as $index => $answer) {
+            $question->answers()->create($answer);
+        }
+        return response()->json();
     }
 
     /**
@@ -64,7 +63,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json(Question::find($id)->load('answers'));
     }
 
     /**
@@ -76,7 +75,15 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::find($id);
+        $question->update($request->all());
+        $question->answers()->delete();
+        foreach ($request->answers as $index => $answer) {
+            $question->answers()->create($answer);
+        }
+        dd($question);
+
+        return 'oi';
     }
 
     /**

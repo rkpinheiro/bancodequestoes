@@ -17,7 +17,7 @@
     </script>
     
 </head>
-<body id="app-layout">
+<body id="app-layout" data-ng-app="question" data-ng-controller="QuestionController" data-ng-init='init()'>
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <button type="button" class="btn btn-danger new-question" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-danger new-question" ng-click="new()" data-toggle="modal" data-target="#newQuestion">
                   Novo
                 </button>
 

@@ -12,4 +12,3 @@
 */
 
 Route::get('/', ['as' => 'root', 'uses' => 'HomeController@index']);
-Route::resource('questions', 'QuestionController');

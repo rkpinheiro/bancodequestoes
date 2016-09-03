@@ -17,4 +17,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/question', 'QuestionController@all');
+Route::resource('questions', 'QuestionController');
