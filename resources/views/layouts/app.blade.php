@@ -9,6 +9,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
+    <script>
+        var root = '{{url('/')}}'
+    </script>
     
 </head>
 <body id="app-layout">
@@ -73,8 +79,6 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
 </body>
 </html>
