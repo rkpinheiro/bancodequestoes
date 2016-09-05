@@ -20,6 +20,9 @@ class CreateTableAnswers extends Migration
             $table->integer('question_id')->unsigned();
             $table->index('question_id');
             $table->timestamps();
+            $table->foreign('question_id')
+              ->references('id')->on('questions')
+              ->onDelete('cascade');
         });
     }
 

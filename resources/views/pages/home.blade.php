@@ -24,7 +24,8 @@
 					</div>
 					<div>
 						<span>Dificuldade: </span>
-						<button class="btn btn-secondary pull-sm-right" ng-click="get(question.id)" data-toggle="modal" data-target="#editQuestion">Editar</button>
+						<button class="btn btn-secondary pull-sm-right" ng-click="edit(question.id)" data-toggle="modal" data-target="#editQuestion">Editar</button>
+						<button class="btn btn-secondary pull-sm-right" ng-click="delete(question.id)" >Delete</button>
 					</div>
 				</div>
 			</div>

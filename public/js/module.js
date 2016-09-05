@@ -14,8 +14,8 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 		$scope.question = $scope.instance();
 	}
 
-	// get a questios from db
-	$scope.get = function($id){
+	// edit a questios from db
+	$scope.edit = function($id){
 		$http.get(root + '/api/questions/' + $id + '/edit')
 			.success(function(data){
 				$scope.question = data;
@@ -57,6 +57,17 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 			})
 			.error(function(error){
 				console.log('Erro ao atualizar')
+			});
+	}
+
+	// delete question
+	$scope.delete = function($id){
+		$http.delete(root + '/api/questions/' + $id)
+			.success(function(data){
+				$scope.all();
+			})
+			.error(function(error){
+				console.log('Não foi possível deletar')
 			});
 	}
 

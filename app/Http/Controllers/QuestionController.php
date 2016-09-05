@@ -52,7 +52,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(Question::find($id)->load('answers'));
     }
 
     /**
@@ -81,9 +81,7 @@ class QuestionController extends Controller
         foreach ($request->answers as $index => $answer) {
             $question->answers()->create($answer);
         }
-        dd($question);
-
-        return 'oi';
+        return response()->json($question);
     }
 
     /**
@@ -94,6 +92,7 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::find($id)->load('answers')->delete();
+        return response()->json($question);
     }
 }
