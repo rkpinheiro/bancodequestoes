@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="card-columns">
-		<div class="item" data-ng-repeat="question in questions">
+		<div class="item" data-ng-repeat="question in questions | filter : search">
 			<div class="card">
 				<div class="card-block">
 					<h4 class="card-title">{[{ question.title | limitTo : 120 }]}</h4>

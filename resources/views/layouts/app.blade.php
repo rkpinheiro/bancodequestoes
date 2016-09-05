@@ -33,7 +33,7 @@
             </li>
           </ul>
           <form class="form-inline pull-xs-right">
-            <input class="form-control" type="text" placeholder="Buscar">
+            <input class="form-control" type="text" placeholder="Buscar" ng-model="search">
           </form>        
             {{--            
                 <!-- Right Side Of Navbar -->
