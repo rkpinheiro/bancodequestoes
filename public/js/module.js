@@ -25,6 +25,17 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 			});
 	}
 
+	// show a questios from db
+	$scope.show = function($id){
+		$http.get(root + '/api/questions/' + $id )
+			.success(function(data){
+				$scope.question = data;
+			})
+			.error(function(error){
+				console.log('Questão não encontrada');
+			});
+	}
+
 	//get all questions from db
 	$scope.all = function(){
 		$http.get(root + '/api/questions' )
@@ -81,7 +92,7 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 		return {
 			'title' : '',
 			'content' : '',
-			'difficulty' : '',
+			'difficulty' : 1,
 			'answers': {
 				'0' : {'text': '', 'correct' : 1},
 				'1' : {'text': '', 'correct' : 0},
