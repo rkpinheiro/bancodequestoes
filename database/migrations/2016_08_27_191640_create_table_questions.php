@@ -17,6 +17,7 @@ class CreateTableQuestions extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content')->nullable();
+            $table->integer('difficulty')->default(1);
             $table->timestamps();
         });
     }

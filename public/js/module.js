@@ -81,6 +81,7 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 		return {
 			'title' : '',
 			'content' : '',
+			'difficulty' : '',
 			'answers': {
 				'0' : {'text': '', 'correct' : 1},
 				'1' : {'text': '', 'correct' : 0},
