@@ -76,6 +76,7 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 		$http.delete(root + '/api/questions/' + $id)
 			.success(function(data){
 				$scope.all();
+				$('#showQuestion').modal('hide');
 			})
 			.error(function(error){
 				console.log('Não foi possível deletar')

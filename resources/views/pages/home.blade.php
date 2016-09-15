@@ -3,33 +3,15 @@
 @section('content')
 	<div class="card-columns">
 		<div class="item" data-ng-repeat="question in questions | filter : search">
-			<div class="card">
+			<div class="card card-inverse" style="background-color: #333; border-color: #333;">
 				<div class="card-block">
 					<h4 class="card-title">{[{ question.title | limitTo : 120 }]}</h4>
-					<div>
-						<p>
-							<span class="tag tag-danger">Análise de sistemas</span>
-							<span class="tag tag-danger">POO</span>
-							<span class="tag tag-danger">Algorítmos 1</span>
-							<span class="tag tag-danger">Algorítmos 2</span>
-							<span class="tag tag-danger">Análise de sistemas</span>
-							<span class="tag tag-danger">POO</span>
-							<span class="tag tag-danger">Algorítmos 1</span>
-							<span class="tag tag-danger">Algorítmos 2</span>
-							<span class="tag tag-danger">Análise de sistemas</span>
-							<span class="tag tag-danger">POO</span>
-							<span class="tag tag-danger">Algorítmos 1</span>
-							<span class="tag tag-danger">Algorítmos 2</span>
-						</p>
-					</div>
-					<div>
+					<p class="card-text">
 						<span>Dificuldade: {[{ question.difficulty }]}</span>
-						<div class="btn-group pull-sm-right" role="group" aria-label="Basic example">
-							<button class="btn btn-secondary " ng-click="show(question.id)" data-toggle="modal" data-target="#showQuestion">Show</button>
-							<button class="btn btn-secondary " ng-click="edit(question.id)" data-toggle="modal" data-target="#editQuestion">Edit</button>
-							<button class="btn btn-secondary " ng-click="delete(question.id)" >Delete</button>
-						</div>
-					</div>
+						{{-- <span class="tag tag-danger">Análise de sistemas</span> --}}
+					</p>
+					<button class="btn btn-secondary " ng-click="show(question.id)" data-toggle="modal" data-target="#showQuestion">Detalhes</button>
+			        <button class="btn btn-secondary " ng-click="edit(question.id)" data-toggle="modal" data-target="#editQuestion">Editar</button>
 				</div>
 			</div>
 		</div>

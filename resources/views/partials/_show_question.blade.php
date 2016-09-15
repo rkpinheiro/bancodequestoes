@@ -11,6 +11,7 @@
         {[{ question }]}
       </div>
       <div class="modal-footer">
+        <button class="btn btn-danger " ng-click="delete(question.id)" >Deletar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
       </div>
     </div>
