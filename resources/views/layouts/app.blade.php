@@ -10,6 +10,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/angular.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
@@ -60,10 +61,10 @@
 
     <div class="container-fluid body-container" style="margin-top: 70px">
         @yield('content')
-        <hr />
+        {{-- <hr />
         <footer>
             <p class="text-center">Banco de Questões &copy; {{ date('Y') }} </p>
-        </footer>
+        </footer> --}}
     </div>
 
     <!-- Scripts -->

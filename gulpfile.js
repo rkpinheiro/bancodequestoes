@@ -22,6 +22,8 @@ elixir(mix => {
     	.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/css/bootstrap.css')
     	.copy('node_modules/jquery/dist/jquery.min.js','public/js/jquery.js')
     	.copy('node_modules/tether/dist/js/tether.min.js','public/js/tether.js')
-    	.copy('node_modules/angular/angular.min.js','public/js/angular.js');
+    	.copy('node_modules/angular/angular.min.js','public/js/angular.js')
+    	.copy('node_modules/font-awesome/css/font-awesome.min.css','public/css/font-awesome.css')
+    	.copy('node_modules/font-awesome/fonts','public/fonts');
     
 });

@@ -7,7 +7,11 @@
 				<div class="card-block">
 					<h4 class="card-title">{[{ question.title | limitTo : 120 }]}</h4>
 					<p class="card-text">
-						<span>Dificuldade: {[{ question.difficulty }]}</span>
+						Dificuldade: 
+						<span ng-repeat="n in [1,2,3,4,5]">
+							<i class="fa fa-star" ng-if="question.difficulty >= n" aria-hidden="true"></i>
+							<i class="fa fa-star-o" ng-if="question.difficulty < n" aria-hidden="true"></i>
+						</span>
 						{{-- <span class="tag tag-danger">Análise de sistemas</span> --}}
 					</p>
 					<button class="btn btn-secondary " ng-click="show(question.id)" data-toggle="modal" data-target="#showQuestion">Detalhes</button>
