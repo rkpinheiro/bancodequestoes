@@ -34,3 +34,11 @@ $factory->define(App\Answer::class, function (Faker\Generator $faker) {
         'text' => $faker->sentence($nbWords = 6, $variableNbWords = true),
     ];
 });
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    $title = $faker->unique()->word();
+    return [
+        'text' => title_case($title),
+        'slug' => str_slug($title),
+    ];
+});

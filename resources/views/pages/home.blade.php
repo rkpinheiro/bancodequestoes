@@ -12,7 +12,9 @@
 							<i class="fa fa-star" ng-if="question.difficulty >= n" aria-hidden="true"></i>
 							<i class="fa fa-star-o" ng-if="question.difficulty < n" aria-hidden="true"></i>
 						</span>
-						{{-- <span class="tag tag-danger">Análise de sistemas</span> --}}
+					</p>
+					<p class="card-text">
+						<span ng-repeat="tag in question.tags" class="tag tag-default" style="margin-right:3px"> {[{ tag.text }]} </span>
 					</p>
 					<button class="btn btn-secondary " ng-click="show(question.id)" data-toggle="modal" data-target="#showQuestion">Detalhes</button>
 			        <button class="btn btn-secondary " ng-click="edit(question.id)" data-toggle="modal" data-target="#editQuestion">Editar</button>
@@ -20,9 +22,4 @@
 			</div>
 		</div>
 	</div>
-
-	@include('partials._new_question')
-	@include('partials._edit_question')
-	@include('partials._show_question')
-
 @stop

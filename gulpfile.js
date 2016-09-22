@@ -24,6 +24,8 @@ elixir(mix => {
     	.copy('node_modules/tether/dist/js/tether.min.js','public/js/tether.js')
     	.copy('node_modules/angular/angular.min.js','public/js/angular.js')
     	.copy('node_modules/font-awesome/css/font-awesome.min.css','public/css/font-awesome.css')
-    	.copy('node_modules/font-awesome/fonts','public/fonts');
+        .copy('node_modules/font-awesome/fonts','public/fonts')
+        .copy('node_modules/ng-tags-input/build/ng-tags-input.min.js','public/js/ng-tags-input.js')
+    	.copy('node_modules/ng-tags-input/build/ng-tags-input.min.css','public/css/ng-tags-input.css');
     
 });

@@ -25,40 +25,46 @@
         <input class="form-check-input" type="radio" name="difficulty" id="difficulty5" value="5" ng-model="question.difficulty"> 5
       </label>
     </div>
-    <div class="form-group answers">
-      <label for="title">Respostas</label>
-      <div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="question.answers[0].correct" ng-true-value="1" ng-false-value="0">
-            <input type="text" class="form-control" id="title" placeholder="Opção 1" ng-model="question.answers[0].text" >
+    <div class="form-group">
+      <label for="tags">Categorias</label>
+      <tags-input ng-model="question.tags" display-property="text"  placeholder="Ex: Matemática" replace-spaces-with-dashes="false" template="tag-template">
+        <auto-complete source="tagscomplete($query)"
+                       min-length="1"
+                       load-on-focus="true"
+                       load-on-empty="true"
+                       max-results-to-show="32"
+                       template="autocomplete-template">
+        </auto-complete>
+      </tags-input>
+    </div>
+    <div class="form-group">
+      <label for="answers">Respostas</label>
+      <div ng-repeat="answer in question.answers">
+        <div class="form-group row">
+          <label class="col-xs-1 col-form-label">
+            <input type="radio" ng-model="question.correct_id" name="question.correct_id" ng-value="answer.id">
           </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="question.answers[1].correct" ng-true-value="1" ng-false-value="0" >
-            <input type="text" class="form-control" id="title" placeholder="Opção 2" ng-model="question.answers[1].text">
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="question.answers[2].correct" ng-true-value="1" ng-false-value="0" >
-            <input type="text" class="form-control" id="title" placeholder="Opção 3" ng-model="question.answers[2].text">
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="question.answers[3].correct" ng-true-value="1" ng-false-value="0" >
-            <input type="text" class="form-control" id="title" placeholder="Opção 4" ng-model="question.answers[3].text">
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="question.answers[4].correct" ng-true-value="1" ng-false-value="0" >
-            <input type="text" class="form-control" id="title" placeholder="Opção 5" ng-model="question.answers[4].text">
-          </label>
+          <div class="col-xs-11">
+            <input type="text" class="form-control" id="title" placeholder="Opção {[{ $index+1 }]}" ng-model="answer.text" >
+          </div>
         </div>
       </div>
     </div>
-    {[{question}]}
 </form>
+
+<script type="text/ng-template" id="tag-template">
+  <div class="tag-template">
+      <span class="tag tag-default" style="margin-right:3px"> 
+        <span>{[{ $getDisplayText() }]} </span>
+        <button type="button" class="close" aria-label="Close" ng-click="$removeTag()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+  </div>
+</script>
+
+<script type="text/ng-template" id="autocomplete-template">
+  <div class="autocomplete-template">
+    <span ng-bind-html="$highlight($getDisplayText())"></span>
+  </div>
+</script>

@@ -1,4 +1,4 @@
-angular.module('question', [])
+angular.module('question', ['ngTagsInput'])
 	.config(function($interpolateProvider){
 	    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 	});
@@ -7,11 +7,13 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 
 	$scope.questions = [];
 	$scope.question = [];
+	$scope.tags = [];
+
 
 	// initial
 	$scope.init = function(){
 		$scope.all();
-		$scope.question = $scope.instance();
+		$scope.new()
 	}
 
 	// edit a questios from db
@@ -83,6 +85,38 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 			});
 	}
 
+	// get all tags
+	$scope.allTag = function(){
+		$http.get(root + '/api/tags')
+			.success(function(data){
+				$scope.tags = data;
+			})
+			.error(function(error){
+				console.log('Não foi possível encontrar as categorias cadastradas');
+			});
+	}
+
+	// delete tag
+	$scope.deleteTag = function($id){
+		$http.delete(root + '/api/tags/' + $id)
+			.success(function(data){
+				$scope.all();
+				$scope.allTag();
+			})
+			.error(function(error){
+				console.log('Não foi possível deletar')
+			});
+	}
+
+	$scope.tagscomplete = function($query) {
+		return $http.get('/api/tags').then(function(response) {
+	  		var tags = response.data;
+	  		return tags.filter(function(tag) {
+	    		return tag.text.toLowerCase().indexOf($query.toLowerCase()) != -1;
+	  		});
+		});
+	};
+
 	// reset $scope.question
 	$scope.new = function(){
 		$scope.question = $scope.instance();
@@ -94,13 +128,14 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 			'title' : '',
 			'content' : '',
 			'difficulty' : 1,
-			'answers': {
-				'0' : {'text': '', 'correct' : 1},
-				'1' : {'text': '', 'correct' : 0},
-				'2' : {'text': '', 'correct' : 0},
-				'3' : {'text': '', 'correct' : 0},
-				'4' : {'text': '', 'correct' : 0},
-			}
+			'correct_id' : 1,
+			'answers': [
+				{'id' : 1, 'text': ''},
+				{'id' : 2, 'text': ''},
+				{'id' : 3, 'text': ''},
+				{'id' : 4, 'text': ''},
+				{'id' : 5, 'text': ''},
+			]
 		}
 	}
 

@@ -18,3 +18,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::resource('questions', 'QuestionController');
+Route::resource('tags', 'TagController');
+Route::get('search/tags', 'TagController@search');
