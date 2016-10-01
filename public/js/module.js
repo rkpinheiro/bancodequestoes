@@ -8,7 +8,7 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 	$scope.questions = [];
 	$scope.question = [];
 	$scope.tags = [];
-
+	$scope.test = [];
 
 	// initial
 	$scope.init = function(){
@@ -108,6 +108,7 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 			});
 	}
 
+	// tags autocomplete
 	$scope.tagscomplete = function($query) {
 		return $http.get('/api/tags').then(function(response) {
 	  		var tags = response.data;
@@ -116,6 +117,35 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 	  		});
 		});
 	};
+
+	$scope.countQuestions = function($tag){
+		$http.post(root + '/api/tags/list-questions', $scope.test.tags)
+			.success(function(data){
+				$scope.test.list_questions_id = data;
+				$scope.test.total_questions = data.length;
+			})
+			.error(function(error){
+				$scope.console.log('Não foi possivel contar a quantidade de questões.');
+			});
+	}
+
+	$scope.downloadTest = function($test){
+		window.open(root + '/test/download', '_blank');
+		// $http.get(root + '/api/test/download', $scope.test)
+		// 	.success(function(data){
+		// 		// var file = new Blob([response], {type: 'application/pdf'});
+    //    			var fileURL = URL.createObjectURL(file);
+    //    			console.log(fileURL);
+			// })
+			// .error(function(error){
+			// 	console.log("Error ao gerar PDF!");
+			// });
+	}
+
+	//  new test
+	$scope.newTest = function(){
+		$scope.test = $scope.instanceTest()
+	}
 
 	// reset $scope.question
 	$scope.new = function(){
@@ -136,6 +166,17 @@ angular.module('question').controller('QuestionController', function($scope, $ht
 				{'id' : 4, 'text': ''},
 				{'id' : 5, 'text': ''},
 			]
+		}
+	}
+
+	$scope.instanceTest= function(){
+		return {
+			'teacher' : '',
+			'class' : '',
+			'total_questions' : '0',
+			'quant_questions' : '0',
+			'tags' : [],
+			'list_questions_id' : [],
 		}
 	}
 

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Tag;
+use PDF;
 
-class TagController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all()->load('questions');
-        return response()->json($tags);
+        //
     }
 
     /**
@@ -83,28 +82,15 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tag::find($id);
-        $tag->questions()->detach();
-        $tag->delete();
-        return response()->json($tag);
+        //
     }
 
-    public function listQuestion(Request $request)
+    public function download(Request $request)
     {
-        $plucked = collect($request->all())->pluck('id');
-        $tags = Tag::find($plucked->toArray())->load('questions');
-        $questions = collect();
-        foreach ($tags as $index => $tag) { 
-            $questions->push($tag->questions->pluck('id'));  
-        }
-        $total_questions = $questions->collapse()->unique();
-        return response()->json($total_questions->flatten()->toArray());
-    }
-
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $tags = Tag::where('text', 'LIKE', '%'.$query.'%')->get();
-        return  response()->json($tags);
+        //dd($request);
+        $html = view('pages.test')
+                    ->render();    
+        $pdf = PDF::loadHTML($html);
+        return $pdf->stream();
     }
 }

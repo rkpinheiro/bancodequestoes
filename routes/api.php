@@ -20,3 +20,4 @@ Route::get('/user', function (Request $request) {
 Route::resource('questions', 'QuestionController');
 Route::resource('tags', 'TagController');
 Route::get('search/tags', 'TagController@search');
+Route::post('tags/list-questions', 'TagController@listQuestion');

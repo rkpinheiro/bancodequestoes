@@ -137,7 +137,7 @@
     </div>
     
     <div class="btn-bottom">
-        <button type="button" class="btn btn-primary btn-circle btn-xl" data-toggle="modal" data-target="#test">
+        <button type="button" class="btn btn-primary btn-circle btn-xl" ng-click="newTest()" data-toggle="modal" data-target="#test">
             <i class="fa fa-file-text-o" aria-hidden="true"></i>
         </button>
         <button type="button" class="btn btn-warning btn-circle btn-xl" ng-click="allTag()" data-toggle="modal" data-target="#tags">

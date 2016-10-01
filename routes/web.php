@@ -12,3 +12,4 @@
 */
 
 Route::get('/', ['as' => 'root', 'uses' => 'HomeController@index']);
+Route::get('test/download', 'TestController@download');
